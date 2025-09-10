@@ -25,10 +25,29 @@
         // que 'interval' millisecondes se sont écoulées
         public void Update(int interval)
         {
-            _x += 2;                                    // Il s'est déplacé de 2 pixels vers la droite
-            _y += GlobalHelpers.alea.Next(-2, 3);       // Il s'est déplacé d'une valeur aléatoire vers le haut ou le bas
-            _charge--;                                  // Il a dépensé de l'énergie
-        }
+            ConsoleKeyInfo keyPressed;
+            Console.Clear();
+            if (Console.KeyAvailable)
+            {
+                keyPressed = Console.ReadKey(false);
+                switch (keyPressed.Key)
+                {
+                    case ConsoleKey.W:
+                        _y += 4;
+                        break;
 
+                    case ConsoleKey.A:
+                        _x -= 4;
+                        break;
+                    case ConsoleKey.S:
+                        _y -= 4;
+                        break;
+
+                    case ConsoleKey.D:
+                        _x += 4;
+                        break;
+                }
+            }
+        }                                 
     }
 }

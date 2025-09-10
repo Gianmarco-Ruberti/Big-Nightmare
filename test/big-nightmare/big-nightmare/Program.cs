@@ -25,10 +25,6 @@ namespace MyApp
                         case ConsoleKey.Escape:
                             Environment.Exit(0);
                             break;
-
-                        case ConsoleKey.W:
-                          
-                            break;
                     }
                 }
                 // Modifier le modèle (ce qui *est*)

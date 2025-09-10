@@ -44,9 +44,9 @@ namespace BigNightmare
         // Calcul du nouvel état après que 'interval' millisecondes se sont écoulées
         private void Update(int interval)
         {
-            foreach (Player drone in fleet)
+            foreach (Player player in fleet)
             {
-                drone.Update(interval);
+                player.Update(interval);
             }
         }
 
