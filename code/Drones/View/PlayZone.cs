@@ -8,11 +8,12 @@ namespace BigNightmare
 
     public partial class PlayZone : Form
     {
-        public static readonly int WIDTH = 1200;        // Dimensions of the airspace
-        public static readonly int HEIGHT = 600;
+        public static readonly int WIDTH = 1920;        // Dimensions of the airspace
+        public static readonly int HEIGHT = 1080;
         private int _x;                                 // Position en X depuis la gauche de l'espace aérien
         private int _y;
         private Player _player;
+        private List<Block> _block;
 
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
 
@@ -20,7 +21,7 @@ namespace BigNightmare
         BufferedGraphics airspace;
 
         // Initialisation de l'espace aérien avec un certain nombre de drones
-        public PlayZone(Player player)
+        public PlayZone(Player player, List<Block> block)
         {
             InitializeComponent();
             // Gets a reference to the current BufferedGraphicsContext
@@ -29,6 +30,7 @@ namespace BigNightmare
             // dimensions the same size as the drawing surface of the form.
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             this._player = player;
+            this._block = block;
             this.KeyPreview = true; // Ensures the form captures key events before child controls
             this.KeyDown += Form1_KeyDown;
         }
@@ -36,11 +38,15 @@ namespace BigNightmare
         // Affichage de la situation actuelle
         private void Render()
         {
-            airspace.Graphics.Clear(Color.AliceBlue);
+            airspace.Graphics.Clear(Color.Gray);
 
             // draw drones
             _player.Render(airspace);
 
+            foreach (Block block in _block)
+            {
+                block.Render(airspace);
+            }
             airspace.Render();
         }
 

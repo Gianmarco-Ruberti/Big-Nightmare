@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+
 namespace BigNightmare
 {
     internal static class Program
@@ -12,11 +14,15 @@ namespace BigNightmare
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            // Création de la flotte de drones
-            Player player = new Player(40, 50,"hollow");
+            // Création du joueur
+            Player player = new Player(1900/2, 1080/2);
+
+            //création des bloc
+           List<Block> block = new List<Block>();
+            block.Add(new Block(400, 500));
 
             // Démarrage
-            Application.Run(new PlayZone(player));
+            Application.Run(new PlayZone(player, block));
         }
     }
 }

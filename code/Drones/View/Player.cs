@@ -16,20 +16,11 @@ namespace BigNightmare
             if (false)
             {
                 drawingSpace.Graphics.DrawImage(Resources.Joueur_gauche, X, Y, 50, 50);
-                drawingSpace.Graphics.DrawString($"{this}", TextHelpers.drawFont, TextHelpers.writingBrush, X + 5, Y - 25);
             }
             else 
             {
-                drawingSpace.Graphics.DrawImage(Resources.joueur_droite, X, Y, 50, 50);
-                drawingSpace.Graphics.DrawString($"{this}", TextHelpers.drawFont, TextHelpers.writingBrush, X + 5, Y - 25);
+                drawingSpace.Graphics.DrawImage(Resources.Joueur_droite, X, Y, 50, 50);
             }
         }
-
-        // De manière textuelle
-        public override string ToString()
-        {
-            return $"{Name}";
-        }
-
     }
 }

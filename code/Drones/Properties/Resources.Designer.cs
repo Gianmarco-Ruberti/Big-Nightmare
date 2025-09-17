@@ -74,6 +74,16 @@ namespace Drones.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap block_top {
+            get {
+                object obj = ResourceManager.GetObject("block_top", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap drone {
             get {
                 object obj = ResourceManager.GetObject("drone", resourceCulture);
@@ -84,9 +94,9 @@ namespace Drones.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap joueur_droite {
+        internal static System.Drawing.Bitmap Joueur_droite {
             get {
-                object obj = ResourceManager.GetObject("joueur_droite", resourceCulture);
+                object obj = ResourceManager.GetObject("Joueur_droite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
