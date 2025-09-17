@@ -15,39 +15,17 @@
             _x = x;
             _y = y;
             _name = name;
-            _charge = GlobalHelpers.alea.Next(FULLCHARGE); // La charge initiale de la batterie est choisie aléatoirement
         }
-        public int X { get { return _x;} }
-        public int Y { get { return _y;} }
+        public int X { get { return _x;} set { _x = value; } }
+        public int Y { get { return _y;} set { _y = value; } }
         public string Name { get { return _name;} }
 
         // Cette méthode calcule le nouvel état dans lequel le drone se trouve après
         // que 'interval' millisecondes se sont écoulées
+
         public void Update(int interval)
         {
-            ConsoleKeyInfo keyPressed;
-            Console.Clear();
-            if (Console.KeyAvailable)
-            {
-                keyPressed = Console.ReadKey(false);
-                switch (keyPressed.Key)
-                {
-                    case ConsoleKey.W:
-                        _y += 4;
-                        break;
-
-                    case ConsoleKey.A:
-                        _x -= 4;
-                        break;
-                    case ConsoleKey.S:
-                        _y -= 4;
-                        break;
-
-                    case ConsoleKey.D:
-                        _x += 4;
-                        break;
-                }
-            }
-        }                                 
+     
+        }
     }
 }

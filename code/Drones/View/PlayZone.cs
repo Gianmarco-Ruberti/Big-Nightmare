@@ -1,3 +1,5 @@
+using System.Xml.Linq;
+
 namespace BigNightmare
 {
     // La classe AirSpace représente le territoire au dessus duquel les drones peuvent voler
@@ -8,15 +10,17 @@ namespace BigNightmare
     {
         public static readonly int WIDTH = 1200;        // Dimensions of the airspace
         public static readonly int HEIGHT = 600;
+        private int _x;                                 // Position en X depuis la gauche de l'espace aérien
+        private int _y;
+        private Player _player;
 
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
-        private List<Player> fleet;
 
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
 
         // Initialisation de l'espace aérien avec un certain nombre de drones
-        public PlayZone(List<Player> fleet)
+        public PlayZone(Player player)
         {
             InitializeComponent();
             // Gets a reference to the current BufferedGraphicsContext
@@ -24,7 +28,9 @@ namespace BigNightmare
             // Creates a BufferedGraphics instance associated with this form, and with
             // dimensions the same size as the drawing surface of the form.
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
-            this.fleet = fleet;
+            this._player = player;
+            this.KeyPreview = true; // Ensures the form captures key events before child controls
+            this.KeyDown += Form1_KeyDown;
         }
 
         // Affichage de la situation actuelle
@@ -33,10 +39,7 @@ namespace BigNightmare
             airspace.Graphics.Clear(Color.AliceBlue);
 
             // draw drones
-            foreach (Player drone in fleet)
-            {
-                drone.Render(airspace);
-            }
+            _player.Render(airspace);
 
             airspace.Render();
         }
@@ -44,10 +47,7 @@ namespace BigNightmare
         // Calcul du nouvel état après que 'interval' millisecondes se sont écoulées
         private void Update(int interval)
         {
-            foreach (Player player in fleet)
-            {
-                player.Update(interval);
-            }
+                _player.Update(interval);
         }
 
         // Méthode appelée à chaque frame
@@ -55,6 +55,32 @@ namespace BigNightmare
         {
             this.Update(ticker.Interval);
             this.Render();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    Close();
+                    break;
+                case Keys.W:
+                    Console.WriteLine("W key pressed");
+                    _player.Y -= 4;
+                    break;
+                case Keys.A:
+                    Console.WriteLine("A key pressed");
+                    _player.X -= 4;
+                    break;
+                case Keys.S:
+                    Console.WriteLine("S key pressed");
+                    _player.Y += 4;
+                    break;
+                case Keys.D:
+                    Console.WriteLine(" key pressed");
+                    _player.X += 4;
+                    break;
+            }
         }
     }
 }

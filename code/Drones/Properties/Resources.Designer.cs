@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BigNightmare.Properties {
+namespace Drones.Properties {
     using System;
     
     
@@ -77,6 +77,26 @@ namespace BigNightmare.Properties {
         internal static System.Drawing.Bitmap drone {
             get {
                 object obj = ResourceManager.GetObject("drone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap joueur_droite {
+            get {
+                object obj = ResourceManager.GetObject("joueur_droite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Joueur_gauche {
+            get {
+                object obj = ResourceManager.GetObject("Joueur_gauche", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

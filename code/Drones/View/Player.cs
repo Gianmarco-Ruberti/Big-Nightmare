@@ -1,5 +1,5 @@
 ﻿using BigNightmare.Helpers;
-using BigNightmare.Properties;
+using Drones.Properties;
 using System.Resources;
 
 namespace BigNightmare
@@ -13,14 +13,22 @@ namespace BigNightmare
         // De manière graphique
         public void Render(BufferedGraphics drawingSpace)
         {
-            drawingSpace.Graphics.DrawImage(Resources._145_1453320_purple_heart_pixel_purpleheart_pixelheart_purplepixelhe_pixel_heart_removebg_preview, X, Y, 50, 50);
-            drawingSpace.Graphics.DrawString($"{this}", TextHelpers.drawFont, TextHelpers.writingBrush, X + 5, Y - 25);
+            if (false)
+            {
+                drawingSpace.Graphics.DrawImage(Resources.Joueur_gauche, X, Y, 50, 50);
+                drawingSpace.Graphics.DrawString($"{this}", TextHelpers.drawFont, TextHelpers.writingBrush, X + 5, Y - 25);
+            }
+            else 
+            {
+                drawingSpace.Graphics.DrawImage(Resources.joueur_droite, X, Y, 50, 50);
+                drawingSpace.Graphics.DrawString($"{this}", TextHelpers.drawFont, TextHelpers.writingBrush, X + 5, Y - 25);
+            }
         }
 
         // De manière textuelle
         public override string ToString()
         {
-            return $"{Name} ({((int)((double)_charge / FULLCHARGE * 100)).ToString()}%)";
+            return $"{Name}";
         }
 
     }

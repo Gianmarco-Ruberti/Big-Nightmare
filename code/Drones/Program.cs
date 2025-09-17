@@ -13,11 +13,10 @@ namespace BigNightmare
             ApplicationConfiguration.Initialize();
 
             // Création de la flotte de drones
-            List<Player> fleet= new List<Player>();
-            fleet.Add(new Player(PlayZone.WIDTH / 2, PlayZone.HEIGHT / 2, "Joe"));
+            Player player = new Player(40, 50,"hollow");
 
             // Démarrage
-            Application.Run(new PlayZone(fleet));
+            Application.Run(new PlayZone(player));
         }
     }
 }
