@@ -1,3 +1,4 @@
+using Drones.Properties;
 using System.Xml.Linq;
 
 namespace BigNightmare
@@ -14,6 +15,7 @@ namespace BigNightmare
         private int _y;
         private Player _player;
         private List<Block> _block;
+        public int rotationAngle = 0;
 
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
 
@@ -45,7 +47,8 @@ namespace BigNightmare
 
             foreach (Block block in _block)
             {
-                block.Render(airspace);
+                block.Render(airspace, rotationAngle, Resources.block_1);
+                rotationAngle += 72;
             }
             airspace.Render();
         }

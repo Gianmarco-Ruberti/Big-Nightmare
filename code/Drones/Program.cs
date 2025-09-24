@@ -20,10 +20,13 @@ namespace BigNightmare
             //création des bloc
            List<Block> block = new List<Block>();
             block.Add(new Block(925, 375));
-            block.Add(new Block(775, 500));
-            block.Add(new Block(825, 650));
-            block.Add(new Block(1025, 650));
             block.Add(new Block(1075, 500));
+            block.Add(new Block(1025, 650));
+            block.Add(new Block(825, 650));
+            block.Add(new Block(775, 500));
+            
+            
+            
 
             // Démarrage
             Application.Run(new PlayZone(player, block));
