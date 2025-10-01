@@ -1,5 +1,4 @@
 ﻿using BigNightmare.Helpers;
-using Drones.Properties;
 using System.Drawing.Drawing2D;
 using System.Numerics;
 using System.Resources;
