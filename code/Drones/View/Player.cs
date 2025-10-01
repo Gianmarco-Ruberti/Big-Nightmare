@@ -1,5 +1,5 @@
 ﻿using BigNightmare.Helpers;
-using Drones.Properties;
+using BigNightmare.Properties;
 using System.Resources;
 
 namespace BigNightmare

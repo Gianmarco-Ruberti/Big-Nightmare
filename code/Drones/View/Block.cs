@@ -8,11 +8,19 @@ namespace BigNightmare
 {
     public partial class Block
     {
+        private List<Block> _block;
+        public void rotation()
+            {
+            for (int j=0; j < _block.Count; j++) 
+            {
+                int rotationAngle = 72 * j;
+            }
+            }
         private Pen droneBrush = new Pen(new SolidBrush(Color.Purple), 3);
-
         //rotation inspiré de https://stackoverflow.com/questions/2163829/how-do-i-rotate-a-picture-in-winforms
-        public void Render(BufferedGraphics drawingSpace, float rotationAngle, Image img)
+        public void Render(BufferedGraphics drawingSpace, Image img, float rotationAngle)
         {
+
                 //create an empty Bitmap image
                 Bitmap bmp = new Bitmap(img.Width, img.Height);
 
@@ -34,7 +42,6 @@ namespace BigNightmare
                 gfx.DrawImage(img, new Point(0, 0));
 
                 drawingSpace.Graphics.DrawImage(bmp, X, Y, 125, 70);
-                
         }
     }
 }
