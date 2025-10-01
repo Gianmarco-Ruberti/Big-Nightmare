@@ -1,5 +1,5 @@
-using Drones.Properties;
 using System.Xml.Linq;
+using BigNightmare.Properties;
 
 namespace BigNightmare
 {
@@ -9,30 +9,30 @@ namespace BigNightmare
 
     public partial class PlayZone : Form
     {
-        public static readonly int WIDTH = 1920;        // Dimensions of the airspace
+        public static readonly int WIDTH = 1920;        // Dimensions of the playzone
         public static readonly int HEIGHT = 1080;
-        private int _x;                                 // Position en X depuis la gauche de l'espace aérien
+        private int _x;                                 // Position en X depuis la gauche de la playzone
         private int _y;
         private Player _player;
         private List<Block> _block;
-        public int rotationAngle = 0;
-
-        // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
+        private List<Bullet> _bullet;
+        public float rotationAngle;
 
         BufferedGraphicsContext currentContext;
-        BufferedGraphics airspace;
+        BufferedGraphics playzone;
 
-        // Initialisation de l'espace aérien avec un certain nombre de drones
-        public PlayZone(Player player, List<Block> block)
+        // Initialisation de la zone de jeux
+        public PlayZone(Player player, List<Block> block, List<Bullet> bullet)
         {
             InitializeComponent();
             // Gets a reference to the current BufferedGraphicsContext
             currentContext = BufferedGraphicsManager.Current;
             // Creates a BufferedGraphics instance associated with this form, and with
             // dimensions the same size as the drawing surface of the form.
-            airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
+            playzone = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             this._player = player;
             this._block = block;
+            this._bullet = bullet;
             this.KeyPreview = true; // Ensures the form captures key events before child controls
             this.KeyDown += Form1_KeyDown;
         }
@@ -40,17 +40,16 @@ namespace BigNightmare
         // Affichage de la situation actuelle
         private void Render()
         {
-            airspace.Graphics.Clear(Color.Gray);
+            playzone.Graphics.Clear(Color.Gray);
 
             // draw drones
-            _player.Render(airspace);
+            _player.Render(playzone);
 
             foreach (Block block in _block)
             {
-                block.Render(airspace, rotationAngle, Resources.block_1);
-                rotationAngle += 72;
+                block.Render(playzone, Resources.block_1, rotationAngle);
             }
-            airspace.Render();
+            playzone.Render();
         }
 
         // Calcul du nouvel état après que 'interval' millisecondes se sont écoulées
@@ -66,7 +65,7 @@ namespace BigNightmare
             this.Render();
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        public void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -86,9 +85,15 @@ namespace BigNightmare
                     _player.Y += 4;
                     break;
                 case Keys.D:
-                    Console.WriteLine(" key pressed");
+                    Console.WriteLine("D key pressed");
                     _player.X += 4;
                     break;
+                case Keys.LButton:
+                    Console.WriteLine("Shot");
+                    //Bullet shot = Player.shot;
+                    //_bullet.Add(shot);
+                    break;
+
             }
         }
     }
