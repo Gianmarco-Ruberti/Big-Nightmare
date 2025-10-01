@@ -25,11 +25,11 @@ namespace BigNightmare
             block.Add(new Block(825, 650));
             block.Add(new Block(775, 500));
             
-            
+            List<Bullet> bullet = new List<Bullet>();
             
 
             // Démarrage
-            Application.Run(new PlayZone(player, block));
+            Application.Run(new PlayZone(player, block, bullet));
         }
     }
 }
