@@ -18,7 +18,15 @@ namespace BigNightmare
             Player player = new Player(1900/2, 1080/2);
 
             //création des bloc
-           List<Block> block = new List<Block>();
+            int centerX = 100;
+            int centerY = 100;
+            int radius = 50;
+
+            // Position initiale sur le cercle, par exemple à droite (angle 0°)
+            int startX = centerX + radius;
+            int startY = centerY;
+
+            Block block = new Block(startX, startY);
             block.Add(new Block(925, 375));
             block.Add(new Block(1075, 500));
             block.Add(new Block(1025, 650));
