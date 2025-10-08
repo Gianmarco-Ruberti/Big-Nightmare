@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using Microsoft.VisualBasic.Devices;
+using System.Windows.Forms;
 
 namespace BigNightmare
 {
@@ -17,5 +18,6 @@ namespace BigNightmare
         public int X { get { return _x; } set { _x = value; } }
 
         public int Y { get { return _y; } set { _y = value; } }
+
     }
 }
