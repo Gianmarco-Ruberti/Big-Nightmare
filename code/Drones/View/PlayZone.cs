@@ -47,7 +47,7 @@ namespace BigNightmare
 
             foreach (Block block in _block)
             {
-                block.Render(playzone, Resources.block_1, rotationAngle);
+                block.Render(playzone);
             }
             playzone.Render();
         }

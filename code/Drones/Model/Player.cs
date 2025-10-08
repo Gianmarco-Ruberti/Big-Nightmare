@@ -31,7 +31,7 @@
             return nail;
         }
 
-        // Cette méthode calcule le nouvel état dans lequel le drone se trouve après
+        // Cette méthode calcule le nouvel état dans lequel le joueur se trouve après
         // que 'interval' millisecondes se sont écoulées
 
         public void Update(int interval)

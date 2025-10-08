@@ -23,15 +23,14 @@ namespace BigNightmare
             int radius = 50;
 
             // Position initiale sur le cercle, par exemple à droite (angle 0°)
-            int startX = centerX + radius;
-            int startY = centerY;
 
-            Block block = new Block(startX, startY);
-            block.Add(new Block(925, 375));
-            block.Add(new Block(1075, 500));
-            block.Add(new Block(1025, 650));
-            block.Add(new Block(825, 650));
-            block.Add(new Block(775, 500));
+            
+            List<Block> block = new List<Block>();
+            block.Add(new Block(925, 275, 360));
+            block.Add(new Block(1050, 375, 288));
+            block.Add(new Block(1005, 525, 216));
+            block.Add(new Block(845, 525, 144));
+            block.Add(new Block(800, 375,72));
             
             List<Bullet> bullet = new List<Bullet>();
             
