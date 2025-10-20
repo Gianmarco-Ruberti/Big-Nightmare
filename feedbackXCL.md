@@ -17,3 +17,28 @@
 - Nommage des commits OK
 - Le rapport est encore très vide
 - J'ai regardé un peu plus la question de la rotation du bitmap, mais ce n'est vraiment pas simple et ça risque d'être coûteux en performance. Je vous suggère une approche plus directe: créez 5 bitmaps de taille égale avec les blocs déjà tournés dedans. Dans le modèle, ajoutez un attribut "rotation" et utilisez-le dans la vue pour choisir quel image afficher.
+
+## 80%
+
+Les valeurs possibles du résultat sont: LA (Largement Acquis), A (Acquis), I (Insuffisant), NA (non acquis)
+
+| Critère                    | Résultat | Commentaire |
+| -------------------------- | -------- | ----------- |
+| Avancement Obstacles       |          |             |
+| Avancement Joueur          |          |             |
+| Avancement Tirs            |          |             |
+| Avancement ennemis         |          |             |
+| Avancement score           |          |             |
+| Qualité Présentation       |          |             |
+| Qualité Commentaires       |          |             |
+| Qualité Conventions        |          |             |
+| POO                        |          |             |
+| Processus Journal          |          |             |
+| Processus Git              |          |             |
+| Processus Livraison        |          |             |
+| Expression User Stories    |          |             |
+| Expression Rapport Fome    |          |             |
+| Expression Rapport Contenu |          |             |
+| Ecologie (gitignore)       |          |             |
+| Comportement collectif     |          |             |
+| Comportement individuel    |          |             |
