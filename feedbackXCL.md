@@ -22,23 +22,23 @@
 
 Les valeurs possibles du résultat sont: LA (Largement Acquis), A (Acquis), I (Insuffisant), NA (non acquis)
 
-| Critère                    | Résultat | Commentaire |
-| -------------------------- | -------- | ----------- |
-| Avancement Obstacles       |          |             |
-| Avancement Joueur          |          |             |
-| Avancement Tirs            |          |             |
-| Avancement ennemis         |          |             |
-| Avancement score           |          |             |
-| Qualité Présentation       |          |             |
-| Qualité Commentaires       |          |             |
-| Qualité Conventions        |          |             |
-| POO                        |          |             |
-| Processus Journal          |          |             |
-| Processus Git              |          |             |
-| Processus Livraison        |          |             |
-| Expression User Stories    |          |             |
-| Expression Rapport Fome    |          |             |
-| Expression Rapport Contenu |          |             |
-| Ecologie (gitignore)       |          |             |
-| Comportement collectif     |          |             |
-| Comportement individuel    |          |             |
+| Critère                    | Résultat | Commentaire                                                                                                                                                                                                                                                                        |
+| -------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Avancement Obstacles       | I        | il manque les hitbox                                                                                                                                                                                                                                                               |
+| Avancement Joueur          | A        |                                                                                                                                                                                                                                                                                    |
+| Avancement Tirs            | I        | je peux voir que le travail est en cours                                                                                                                                                                                                                                           |
+| Avancement ennemis         | NA       | la classe mob est vide                                                                                                                                                                                                                                                             |
+| Avancement score           | NA       |                                                                                                                                                                                                                                                                                    |
+| Qualité Présentation       | A        |                                                                                                                                                                                                                                                                                    |
+| Qualité Commentaires       | A        |                                                                                                                                                                                                                                                                                    |
+| Qualité Conventions        | I        | les méthodes doivent suivre la convention UpperCamelCase. Pareil pour les noms de classe                                                                                                                                                                                           |
+| POO                        | I        | améliorez la modélisation : lorsque l'on frappe une touche, ce n'est pas la PlayZone qui doit modifier la position du joueur : elle doit simplement lui dire de bouger dans une certaine direction et c'est dans la classe Player que l'on va changer effectivement la position.   |
+| Processus Journal          | I        | la version PDF du journal est illisible. À part ça : OK                                                                                                                                                                                                                            |
+| Processus Git              | A        |                                                                                                                                                                                                                                                                                    |
+| Processus Livraison        | LA       |                                                                                                                                                                                                                                                                                    |
+| Expression User Stories    | I        | telle qu'elle est formulée, la US "le joueur peut tirer" ne me permet pas vraiment de comprendre comment le joueur s'y prend pour tirer <br>N'hésitez pas à mettre plusieurs fois la même maquette pour différentes US. Typiquement en ce qui concerne les blocs autour du joueur. |
+| Expression Rapport Forme   | I        | modifier l'image de la page de garde                                                                                                                                                                                                                                               |
+| Expression Rapport Contenu | I        | le rapport est très très vide.                                                                                                                                                                                                                                                     |
+| Ecologie (gitignore)       | A        |                                                                                                                                                                                                                                                                                    |
+| Comportement collectif     | A        |                                                                                                                                                                                                                                                                                    |
+| Comportement individuel    | A        |                                                                                                                                                                                                                                                                                    |
