@@ -7,6 +7,7 @@ using BigNightmare.Properties;
 
 namespace BigNightmare
 {
+    // dimention de bullet = 13, 50
     public partial class Bullet
     {
         private Pen droneBrush = new Pen(new SolidBrush(Color.Purple), 3);
@@ -14,7 +15,12 @@ namespace BigNightmare
         // De manière graphique
         public void Render(BufferedGraphics drawingSpace)
         {
-            drawingSpace.Graphics.DrawImage(Resources.player_Bullet, X, Y - this.by, 50, 50);
+            Graphics g = drawingSpace.Graphics;
+            g.TranslateTransform(bx + 25, by + 25); // centre de l'image
+            g.RotateTransform(angle);               // rotation
+            g.DrawImage(Resources.player_Bullet, -25, -25, 13, 50); // dessine centrée
+            g.ResetTransform();                     // remet la transformation
         }
+
     }
 }

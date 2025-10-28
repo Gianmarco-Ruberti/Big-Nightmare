@@ -9,6 +9,9 @@ namespace BigNightmare
         private int _x;                                 // Position en X depuis la gauche de l'espace aérien
         private int _y;                                 // Position en Y depuis le haut de l'espace aérien
         public List<Bullet> nails;
+        private DateTime lastShotTime = DateTime.MinValue;
+        private readonly TimeSpan shotCooldown = TimeSpan.FromMilliseconds(500); // 0,5 sec
+
 
         // Constructeur
         public Player(int x, int y)
@@ -30,23 +33,33 @@ namespace BigNightmare
             this.nails.Add(bullet);
         }
 
-        public Bullet shot()
+        public Bullet Shoot(int targetX, int targetY)
         {
-            Bullet nail = nails.First();
-            nail.bx = _x;
-            nail.by= this._y;
-            return nail;
+            if (DateTime.Now - lastShotTime < shotCooldown)
+                return null;
+
+            lastShotTime = DateTime.Now;
+
+            // Crée une nouvelle balle au centre du joueur
+            int startX = X + Hitbox.Width / 2 - 25;
+            int startY = Y + Hitbox.Height / 2 - 25;
+
+            Bullet newBullet = new Bullet(startX, startY, targetX, targetY);
+            nails.Add(newBullet);
+            return newBullet;
         }
+
+
 
         public void Move(int dx, int dy, List<Block> blocks)
         {
             // 1️⃣ Calcul de la nouvelle position du joueur
-            Rectangle futurePos = new Rectangle(X + dx, Y + dy, Hitbox.Width, Hitbox.Height);
+            Rectangle NextPos = new Rectangle(X + dx, Y + dy, Hitbox.Width, Hitbox.Height);
 
             // 2️⃣ Vérification de collision avec les blocks
             foreach (Block block in blocks)
             {
-                if (block.LeftCircle.Intersects(futurePos) || block.RightCircle.Intersects(futurePos))
+                if (block.LeftCircle.collision(NextPos) || block.RightCircle.collision(NextPos))
                 {
                     return; // collision détectée
                 }

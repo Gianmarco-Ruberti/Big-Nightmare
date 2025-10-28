@@ -32,7 +32,7 @@ namespace BigNightmare
             }
 
             // Vérifie si un rectangle (joueur) touche ce cercle
-            public bool Intersects(Rectangle rect)
+            public bool collision(Rectangle rect)
             {
                 float closestX = Math.Max(rect.Left, Math.Min(Center.X, rect.Right));
                 float closestY = Math.Max(rect.Top, Math.Min(Center.Y, rect.Bottom));

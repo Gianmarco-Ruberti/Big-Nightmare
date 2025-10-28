@@ -35,6 +35,8 @@ namespace BigNightmare
             this._bullet = bullet;
             this.KeyPreview = true; // Ensures the form captures key events before child controls
             this.KeyDown += Form1_KeyDown;
+            this.MouseDown += PlayZone_MouseDown;
+
         }
 
         // Affichage de la situation actuelle
@@ -42,12 +44,16 @@ namespace BigNightmare
         {
             playzone.Graphics.Clear(Color.Gray);
 
-            // draw drones
             _player.Render(playzone);
 
             foreach (Block block in _block)
             {
                 block.Render(playzone);
+            }
+
+            foreach (Bullet bullet in _bullet)
+            {
+                bullet.Render(playzone);
             }
             playzone.Render();
         }
@@ -56,6 +62,15 @@ namespace BigNightmare
         private void Update(int interval)
         {
                 _player.Update(interval);
+            // Met à jour les balles
+            foreach (var bullet in _bullet.ToList())
+            {
+                bullet.Update(interval);
+
+                // Supprime la balle si elle sort de l'écran
+                if (bullet.Y + 50 < 0) // 50 = hauteur de la balle
+                    _bullet.Remove(bullet);
+            }
         }
 
         // Méthode appelée à chaque frame
@@ -64,6 +79,21 @@ namespace BigNightmare
             this.Update(ticker.Interval);
             this.Render();
         }
+
+        private void PlayZone_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                // Tir vers la position de la souris
+                Bullet shot = _player.Shoot(e.X, e.Y);
+                if (shot != null)
+                {
+                    _bullet.Add(shot);
+                }
+            }
+        }
+
+
 
         public void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -84,9 +114,6 @@ namespace BigNightmare
                     break;
                 case Keys.D:
                     _player.Move(4, 0, _block);
-                    break;
-                case Keys.LButton:
-                    Console.WriteLine("Shot");
                     break;
             }
         }
