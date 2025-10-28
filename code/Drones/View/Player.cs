@@ -15,12 +15,20 @@ namespace BigNightmare
         {
             if (false)
             {
-                drawingSpace.Graphics.DrawImage(Resources.Joueur_gauche, X, Y, 50, 50);
+                drawingSpace.Graphics.DrawImage(Resources.joueur_gauche, X, Y, 50, 50);
             }
             else 
             {
-                drawingSpace.Graphics.DrawImage(Resources.Joueur_droite, X, Y, 50, 50);
+                drawingSpace.Graphics.DrawImage(Resources.joueur_gauche, X, Y, 23, 50);
             }
+            // === DEBUG : Affiche la hitbox du joueur ===
+#if DEBUG
+            using (Pen hitboxPen = new Pen(Color.LimeGreen, 2))
+            {
+                drawingSpace.Graphics.DrawRectangle(hitboxPen, Hitbox);
+            }
+#endif
+
         }
     }
 }

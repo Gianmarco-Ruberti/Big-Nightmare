@@ -144,9 +144,9 @@ namespace BigNightmare.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Joueur_gauche {
+        internal static System.Drawing.Bitmap joueur_gauche {
             get {
-                object obj = ResourceManager.GetObject("Joueur_gauche", resourceCulture);
+                object obj = ResourceManager.GetObject("joueur_gauche", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

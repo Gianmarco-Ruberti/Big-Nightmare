@@ -15,7 +15,7 @@ namespace BigNightmare
             ApplicationConfiguration.Initialize();
 
             // Création du joueur
-            Player player = new Player(1900/2, 1080/2);
+            Player player = new Player(960, 450);
 
             //création des bloc
             int centerX = 100;

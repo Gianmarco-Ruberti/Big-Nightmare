@@ -73,28 +73,23 @@ namespace BigNightmare
                     Close();
                     break;
                 case Keys.W:
-                    Console.WriteLine("W key pressed");
-                    _player.Y -= 4;
+                    Console.WriteLine("w");
+                    _player.Move(0, -4, _block);
                     break;
                 case Keys.A:
-                    Console.WriteLine("A key pressed");
-                    _player.X -= 4;
+                    _player.Move(-4, 0, _block);
                     break;
                 case Keys.S:
-                    Console.WriteLine("S key pressed");
-                    _player.Y += 4;
+                    _player.Move(0, 4, _block);
                     break;
                 case Keys.D:
-                    Console.WriteLine("D key pressed");
-                    _player.X += 4;
+                    _player.Move(4, 0, _block);
                     break;
                 case Keys.LButton:
                     Console.WriteLine("Shot");
-                    //Bullet shot = Player.shot;
-                    //_bullet.Add(shot);
                     break;
-
             }
         }
+
     }
 }

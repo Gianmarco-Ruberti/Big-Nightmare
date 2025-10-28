@@ -34,6 +34,25 @@ namespace BigNightmare
                     // Par défaut, une image neutre ou rien
                     break;
             }
+            // === DEBUG : Affiche la hitbox du block ===
+#if DEBUG
+            using (Pen pen = new Pen(Color.Red, 2))
+            {
+                pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+                // Cercle gauche
+                drawingSpace.Graphics.DrawEllipse(pen, LeftCircle.Center.X - LeftCircle.Radius,
+                                                         LeftCircle.Center.Y - LeftCircle.Radius,
+                                                         LeftCircle.Radius * 2,
+                                                         LeftCircle.Radius * 2);
+                // Cercle droit
+                drawingSpace.Graphics.DrawEllipse(pen, RightCircle.Center.X - RightCircle.Radius,
+                                                         RightCircle.Center.Y - RightCircle.Radius,
+                                                         RightCircle.Radius * 2,
+                                                         RightCircle.Radius * 2);
+            }
+#endif
+
+
         }
     }
 }
