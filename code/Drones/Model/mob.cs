@@ -5,36 +5,25 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Drones.Model
+namespace BigNightmare
 {
-    public partial class mob
+    public partial class Mob
     {
-        /* private static readonly Random _r = new();
-         public Vector2 origin {  get; }
-         public Vector2 Position { get; set; }
-         public Vector2 Direction { get; set; }
-         public int Speed { get; set; } = 1;
-         public Color color { get; set; }
-         private static Vector2 RandomPosition()
-         {
-             const int padding = 50;
-             var x = _r.Next(padding, Globals.Bounds.X - padding);
-             var y = _r.Next(padding, Globals.Bounds.Y - padding);
-             return new(x, y);
-         }
-         public void Update()
-         {
-             Position += Direction * Speed * Globals.TotalSeconds;
-             if (Position.X < origin.X || Position.X > Globals.bounds.X - origin.X) Direction = new(-Direction.X, Direction.Y);
-             if (Position.Y < origin.Y || Position.Y > Globals.Bounds.Y - origin.Y) Direction = new(Direction.X, -Direction.Y);
-             Position = new(Math.Clamp(Position.X, origin.X, Globals.Bounds.X - origin.X),
-                            Math.Clamp(Position.Y, origin.Y, Globals.Bounds.Y - origin.Y));
-         }
-         private void checkCollisionMob()
-         {
-             foreach ()
-             { 
-             }
-         }*/
+        private float _x;
+        private float _y;
+        public Rectangle Hitbox => new Rectangle((int)_x, (int)_y, 64, 64); // taille du mob
+
+        public Mob(float x, float y)
+        {
+            _x = x;
+            _y = y;
+        }
+
+        public float X { get { return _x; } set { _x = value; } }
+        public float Y { get { return _y; } set { _y = value; } }
+
+        public void Update(int interval)
+        {
+        }
     }
 }

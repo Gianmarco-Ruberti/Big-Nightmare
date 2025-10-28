@@ -16,6 +16,7 @@ namespace BigNightmare
         private Player _player;
         private List<Block> _block;
         private List<Bullet> _bullet;
+        private List<Mob> _mob;
         public float rotationAngle;
 
         BufferedGraphicsContext currentContext;
@@ -71,6 +72,14 @@ namespace BigNightmare
                 if (bullet.Y + 50 < 0) // 50 = hauteur de la balle
                     _bullet.Remove(bullet);
             }
+            foreach (Mob mob in _mob)
+            {
+                if (mob is MobYellow yellow)
+                    yellow.Update(interval, _player, _bullet);
+                else
+                    mob.Update(interval); // MobRed ou Mob de base
+            }
+
         }
 
         // Méthode appelée à chaque frame
