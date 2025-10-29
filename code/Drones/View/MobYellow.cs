@@ -15,9 +15,9 @@ namespace BigNightmare
         public void Render(BufferedGraphics drawingSpace)
         {
             if (frameCount % 3 == 0)
-            { drawingSpace.Graphics.DrawImage(Resources.mob_yellow, (int)X, (int)Y, 75, 75); }
+            { drawingSpace.Graphics.DrawImage(Resources.mob_yellow, (int)X, (int)Y, 90, 90); }
             else
-            { drawingSpace.Graphics.DrawImage(Resources.mob_yellow_1, (int)X, (int)Y, 75, 75); }
+            { drawingSpace.Graphics.DrawImage(Resources.mob_yellow_1, (int)X, (int)Y, 90, 90); }
             frameCount++;
 #if DEBUG
             // Hitbox en pointillés pour debug

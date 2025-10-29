@@ -49,11 +49,12 @@ namespace BigNightmare
                 if (distance >= minDistance)
                 {
                     mobRed.Add(new MobRed(positionX, positionY));
+                    Console.WriteLine($"position du mobRed = {positionX}, {positionY}");
                     i++;
                 }
             }while (i < nombreRed);
             i = 0;
-        List < MobYellow > mobYellow = new List<MobYellow>();
+            List < MobYellow > mobYellow = new List<MobYellow>();
             do
             {
                 int positionX = random.Next(100, 1600);
@@ -62,6 +63,7 @@ namespace BigNightmare
                 if (distance >= minDistance)
                 {
                     mobYellow.Add(new MobYellow(positionX, positionY));
+                    Console.WriteLine($"position du mobYellow = {positionX}, {positionY}");
                     i++;
                 }
             } while (i < nombreYellow);

@@ -11,7 +11,7 @@ namespace BigNightmare
     {
         private float _x;
         private float _y;
-        public Rectangle Hitbox => new Rectangle((int)_x, (int)_y, 64, 64); // taille du mob
+        public Rectangle Hitbox => new Rectangle((int)_x, (int)_y, 90, 90); // taille du mob
 
         public Mob(float x, float y)
         {
