@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BigNightmare
 {
-    public class MobRed : Mob
+    public partial class MobRed : Mob
     {
         public MobRed(float x, float y) : base(x, y) { }
 
-        public override void Update(int interval, Player player, List<Bullet> bullets)
+        public void Update(int interval)
         {
-            base.Update(interval, player, bullets);
+            base.Update(interval);
         }
     }
 }

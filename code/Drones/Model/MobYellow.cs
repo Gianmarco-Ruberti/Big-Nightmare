@@ -7,6 +7,8 @@ namespace BigNightmare
         private DateTime lastShotTime = DateTime.MinValue;
         private readonly TimeSpan shotCooldown = TimeSpan.FromSeconds(1);
 
+        public MobYellow(float x, float y) : base(x, y) { }
+
         public void Update(int interval, Player player, List<Bullet> bullets)
         {
             // tir automatique
@@ -24,5 +26,4 @@ namespace BigNightmare
         }
     }
 
-}
 }

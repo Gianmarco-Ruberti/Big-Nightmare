@@ -16,14 +16,15 @@ namespace BigNightmare
         private Player _player;
         private List<Block> _block;
         private List<Bullet> _bullet;
-        private List<Mob> _mob;
+        private List<MobRed> _mobRed;
+        private List<MobYellow> _mobYellow;
         public float rotationAngle;
 
         BufferedGraphicsContext currentContext;
         BufferedGraphics playzone;
 
         // Initialisation de la zone de jeux
-        public PlayZone(Player player, List<Block> block, List<Bullet> bullet)
+        public PlayZone(Player player, List<Block> block, List<Bullet> bullet, List<MobRed> mobRed, List<MobYellow> mobYellow)
         {
             InitializeComponent();
             // Gets a reference to the current BufferedGraphicsContext
@@ -34,10 +35,11 @@ namespace BigNightmare
             this._player = player;
             this._block = block;
             this._bullet = bullet;
+            this._mobRed = mobRed;
+            this._mobYellow = mobYellow;
             this.KeyPreview = true; // Ensures the form captures key events before child controls
             this.KeyDown += Form1_KeyDown;
             this.MouseDown += PlayZone_MouseDown;
-
         }
 
         // Affichage de la situation actuelle
@@ -56,6 +58,14 @@ namespace BigNightmare
             {
                 bullet.Render(playzone);
             }
+            foreach (MobRed mobRed in _mobRed)
+            {
+                        mobRed.Render(playzone);
+            }
+            foreach (MobYellow mobYellow in _mobYellow)
+            {
+                mobYellow.Render(playzone);
+            }
             playzone.Render();
         }
 
@@ -72,14 +82,14 @@ namespace BigNightmare
                 if (bullet.Y + 50 < 0) // 50 = hauteur de la balle
                     _bullet.Remove(bullet);
             }
-            foreach (Mob mob in _mob)
+            foreach (MobRed mobRed in _mobRed)
             {
-                if (mob is MobYellow yellow)
-                    yellow.Update(interval, _player, _bullet);
-                else
-                    mob.Update(interval); // MobRed ou Mob de base
+                    mobRed.Update(interval);
             }
-
+            foreach (MobYellow mobYellow in _mobYellow)
+            {
+                mobYellow.Update(interval);
+            }
         }
 
         // Méthode appelée à chaque frame
