@@ -6,13 +6,18 @@
       <Property Name="X" Hidden="true" />
       <Property Name="Y" Hidden="true" />
     </Members>
+    <AssociationLine Name="RightCircle" Type="BigNightmare.CircleHitbox">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.994" Y="0.091" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAACAIAAQAAAIAAACAAAAAAAAABAAAABAAAAAAYAA=</HashCode>
       <FileName>Model\Block.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="RightCircle" />
       <Property Name="LeftCircle" />
+      <Property Name="RightCircle" />
     </ShowAsAssociation>
   </Class>
   <Class Name="BigNightmare.Bullet">
@@ -75,9 +80,6 @@
       <HashCode>QAQgAAAIAIQEBAIAAAAAAAAAAAAAAAAAABAAAAEAYIA=</HashCode>
       <FileName>Model\Player.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="nails" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="BigNightmare.Program">
     <Position X="6" Y="5.25" Width="1.5" />
