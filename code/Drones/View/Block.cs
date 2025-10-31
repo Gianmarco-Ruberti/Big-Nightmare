@@ -10,7 +10,7 @@ namespace BigNightmare
     public partial class Block
     {
 
-        private Pen droneBrush = new Pen(new SolidBrush(Color.Purple), 3);
+        private Pen Brush = new Pen(new SolidBrush(Color.Purple), 3);
         public void Render(BufferedGraphics drawingSpace)
         {
             switch (rotation)

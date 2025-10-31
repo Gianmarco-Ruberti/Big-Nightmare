@@ -1,17 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="BigNightmare.Bullet">
-    <Position X="8.75" Y="1.25" Width="1.5" />
+  <Class Name="BigNightmare.Block">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Property Name="X" Hidden="true" />
+      <Property Name="Y" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAACAIAAABAAAAAAAAABAAAABAZAE=</HashCode>
+      <HashCode>AAAAACAIAAQAAAIAAACAAAAAAAAABAAAABAAAAAAYAA=</HashCode>
+      <FileName>Model\Block.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RightCircle" />
+      <Property Name="LeftCircle" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BigNightmare.Bullet">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <Members>
+      <Property Name="X" Hidden="true" />
+      <Property Name="Y" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAIAACAIAAABAAAAAAAAABAAAABAZAE=</HashCode>
       <FileName>Model\bullet.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="BigNightmare.CircleHitbox">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Model\CircleHitbox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigNightmare.Mob">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <Members>
+      <Property Name="X" Hidden="true" />
+      <Property Name="Y" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Model\mob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigNightmare.Model.MobMort">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\MobMort.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="BigNightmare.MobRed">
-    <Position X="10.75" Y="5.5" Width="1.5" />
+    <Position X="9.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAYAAAAAAAAAAAAAAAEAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>Model\MobRed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigNightmare.MobYellow">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYgABAAAAAAAAAAAAEAAAgAAAAAAAAAABAAAAAQAIA=</HashCode>
+      <FileName>Model\MobYellow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigNightmare.Player">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <Members>
+      <Property Name="X" Hidden="true" />
+      <Property Name="Y" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>QAQgAAAIAIQEBAIAAAAAAAAAAAAAAAAAABAAAAEAYIA=</HashCode>
+      <FileName>Model\Player.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="nails" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BigNightmare.Program">
+    <Position X="6" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

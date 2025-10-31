@@ -10,7 +10,7 @@ namespace BigNightmare
     // dimention de bullet = 13, 50
     public partial class Bullet
     {
-        private Pen droneBrush = new Pen(new SolidBrush(Color.Purple), 3);
+        private Pen Brush = new Pen(new SolidBrush(Color.Purple), 3);
 
         // De manière graphique
         public void Render(BufferedGraphics drawingSpace)
