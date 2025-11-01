@@ -8,13 +8,24 @@ namespace BigNightmare
     public partial class MobYellow : Mob
     {
         private DateTime lastShotTime = DateTime.MinValue;
-        private readonly TimeSpan shotCooldown = TimeSpan.FromSeconds(5);
+        private TimeSpan shotCooldown = TimeSpan.FromSeconds(4);
+        private DateTime lastCooldownDecrease = DateTime.Now;
+        private TimeSpan minCooldown = TimeSpan.FromSeconds(1);
 
         public MobYellow(float x, float y) : base(x, y, 1) { }
 
         // Mise à jour avec tir + mort
         public void Update(int interval, Player player, List<Bullet> bullets, List<MobYellow> mobYellow, List<MobMort> mobMort)
         {
+            if ((DateTime.Now - lastCooldownDecrease).TotalSeconds >= 45 && shotCooldown.TotalSeconds > 1)
+            {
+                shotCooldown = shotCooldown - TimeSpan.FromSeconds(1);
+                if (shotCooldown < minCooldown)
+                    shotCooldown = minCooldown;
+
+                lastCooldownDecrease = DateTime.Now;
+            }
+
             // Vérifie si mort
             if (pv <= 0)
             {
