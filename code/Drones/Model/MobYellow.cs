@@ -13,12 +13,12 @@ namespace BigNightmare
         public MobYellow(float x, float y) : base(x, y, 1) { }
 
         // Mise à jour avec tir + mort
-        public void Update(int interval, Player player, List<Bullet> bullets, List<MobYellow> mobYellows, List<MobMort> mobMort)
+        public void Update(int interval, Player player, List<Bullet> bullets, List<MobYellow> mobYellow, List<MobMort> mobMort)
         {
             // Vérifie si mort
             if (pv <= 0)
             {
-                mobYellows.Remove(this);
+                mobYellow.Remove(this);
                 mobMort.Add(new MobMort());
                 return;
             }
