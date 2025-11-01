@@ -16,7 +16,6 @@ namespace BigNightmare
         // Mise à jour avec tir + mort
         public void Update(int interval, Player player, List<Bullet> bullets, List<MobYellow> mobYellows, List<MobMort> mobMort)
         {
-            if (pv < 0) 
             // Vérifie si mort
             if (pv <= 0)
             {
@@ -39,4 +38,9 @@ namespace BigNightmare
         }
     }
 
+        public void TakeDamage(int damage)
+        {
+            pv -= damage;
+        }
+    }
 }
