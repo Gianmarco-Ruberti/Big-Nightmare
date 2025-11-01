@@ -20,6 +20,10 @@ namespace BigNightmare
         private List<MobRed> _mobRed;
         private List<MobYellow> _mobYellow;
         public float rotationAngle;
+        private int score = 0;
+        private DateTime lastScoreIncrease = DateTime.Now;
+        private Font scoreFont = new Font("Arial", 24, FontStyle.Bold);
+        private SolidBrush scoreBrush = new SolidBrush(Color.White);
 
         BufferedGraphicsContext currentContext;
         BufferedGraphics playzone;
@@ -67,6 +71,13 @@ namespace BigNightmare
             {
                 mobYellow.Render(playzone);
             }
+
+            string scoreText = $"Score : {score}";
+            SizeF textSize = playzone.Graphics.MeasureString(scoreText, scoreFont);
+            float x = this.ClientSize.Width - textSize.Width - 20;
+            float y = 20;
+            playzone.Graphics.DrawString(scoreText, scoreFont, scoreBrush, x, y);
+
             playzone.Render();
         }
 
@@ -90,6 +101,12 @@ namespace BigNightmare
             foreach (MobYellow mobYellow in _mobYellow.ToList())
             {
                 mobYellow.Update(interval, _player, _bullet, _mobYellow, new List<MobMort>());
+            }
+
+            if ((DateTime.Now - lastScoreIncrease).TotalSeconds >= 5)
+            {
+                score += 10; // ou +1 si tu veux plus lentement
+                lastScoreIncrease = DateTime.Now;
             }
         }
 
