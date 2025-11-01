@@ -8,7 +8,7 @@ namespace BigNightmare
 {
     public partial class MobRed : Mob
     {
-        public MobRed(float x, float y) : base(x, y) { }
+        public MobRed(float x, float y) : base(x, y, 3) { }
 
         public void Update(int interval)
         {

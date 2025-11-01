@@ -7,11 +7,10 @@ namespace BigNightmare
 {
     public partial class MobYellow : Mob
     {
-        private int pv = 10;
         private DateTime lastShotTime = DateTime.MinValue;
-        private readonly TimeSpan shotCooldown = TimeSpan.FromSeconds(1);
+        private readonly TimeSpan shotCooldown = TimeSpan.FromSeconds(5);
 
-        public MobYellow(float x, float y) : base(x, y) { }
+        public MobYellow(float x, float y) : base(x, y, 1) { }
 
         // Mise à jour avec tir + mort
         public void Update(int interval, Player player, List<Bullet> bullets, List<MobYellow> mobYellows, List<MobMort> mobMort)
@@ -36,11 +35,6 @@ namespace BigNightmare
                 Bullet bullet = new Bullet(X + 45, Y + 45, targetX, targetY);
                 bullets.Add(bullet);
             }
-        }
-
-        public void TakeDamage(int damage)
-        {
-            pv -= damage;
         }
     }
 }
