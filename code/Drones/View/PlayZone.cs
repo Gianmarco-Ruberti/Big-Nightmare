@@ -1,5 +1,6 @@
 using System.Threading.Tasks.Dataflow;
 using System.Xml.Linq;
+using BigNightmare.Model;
 using BigNightmare.Properties;
 
 namespace BigNightmare
@@ -87,9 +88,9 @@ namespace BigNightmare
             {
                     mobRed.Update(interval);
             }
-            foreach (MobYellow mobYellow in _mobYellow)
+            foreach (MobYellow mobYellow in _mobYellow.ToList())
             {
-                mobYellow.Update(interval);
+                mobYellow.Update(interval, _player, _bullet, _mobYellow, new List<MobMort>());
             }
         }
 

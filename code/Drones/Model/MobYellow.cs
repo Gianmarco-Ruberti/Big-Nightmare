@@ -23,20 +23,20 @@ namespace BigNightmare
                 mobMort.Add(new MobMort());
                 return;
             }
-           /* // tir automatique
+
+            // Tir automatique vers le joueur
             if (DateTime.Now - lastShotTime >= shotCooldown)
             {
                 lastShotTime = DateTime.Now;
 
-                // cible : centre du joueur
+                // vise le centre du joueur
                 int targetX = player.X + player.Hitbox.Width / 2;
                 int targetY = player.Y + player.Hitbox.Height / 2;
 
-                Bullet bullet = new Bullet(X + 32, Y + 32, targetX, targetY);
+                Bullet bullet = new Bullet(X + 45, Y + 45, targetX, targetY);
                 bullets.Add(bullet);
-            }*/
+            }
         }
-    }
 
         public void TakeDamage(int damage)
         {
