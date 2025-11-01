@@ -12,7 +12,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAACAIAAQAAAIAAACAAAAAAAAABAAAABAAAAAAYAA=</HashCode>
+      <HashCode>AAAAACCIAAQAAAIAAACAQAAAAAAABAAAABAQAAAAYgA=</HashCode>
       <FileName>Model\Block.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -45,28 +45,35 @@
       <Property Name="Y" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAQAAAAIAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <HashCode>AAQAAAAIAAQEAAAAAAAAEAAAAAAAAAAAAAAAgAAQYAA=</HashCode>
       <FileName>Model\mob.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BigNightmare.Model.MobMort">
-    <Position X="8.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\MobMort.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="BigNightmare.MobRed">
-    <Position X="9.25" Y="3.5" Width="1.5" />
+    <Position X="9.75" Y="4" Width="1.5" />
+    <InheritanceLine Type="BigNightmare.Mob" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="3.468" />
+        <Point X="11.75" Y="5.25" />
+        <Point X="11.25" Y="5.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAAAAAAEAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <HashCode>AAYAABAAAIAAAAAAAAEAAAAAAAAAAQAAABAAAAAAAAA=</HashCode>
       <FileName>Model\MobRed.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BigNightmare.MobYellow">
-    <Position X="12.25" Y="3.5" Width="1.5" />
+    <Position X="12.25" Y="4" Width="1.5" />
+    <InheritanceLine Type="BigNightmare.Mob" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="3.468" />
+        <Point X="11.75" Y="5.25" />
+        <Point X="12.25" Y="5.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAYgABAAAAAAAAAAAAEAAAgAAAAAAAAAABAAAAAQAIA=</HashCode>
+      <HashCode>AAYgAAAAAAAIAAAAAAEgAAAAAAAAAAAAABAAAAAAAIA=</HashCode>
       <FileName>Model\MobYellow.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -77,15 +84,25 @@
       <Property Name="Y" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>QAQgAAAIAIQEBAIAAAAAAAAAAAAAAAAAABAAAAEAYIA=</HashCode>
+      <HashCode>QAQgAACIAIQEBAIAAAAAAAAAAAAAAAAAABAQAAEAYIA=</HashCode>
       <FileName>Model\Player.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="nails" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="BigNightmare.Program">
     <Position X="6" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BigNightmare.MobMort">
+    <Position X="8.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\MobMort.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
