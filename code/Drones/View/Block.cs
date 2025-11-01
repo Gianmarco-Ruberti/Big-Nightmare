@@ -1,58 +1,69 @@
-﻿using BigNightmare.Helpers;
-using BigNightmare.Properties;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Numerics;
-using System.Resources;
-using System.Security.Cryptography.Xml;
+using System.Drawing.Imaging;
+using BigNightmare.Properties;
+using BigNightmare.Helpers;
 
 namespace BigNightmare
 {
     public partial class Block
     {
-
         private Pen Brush = new Pen(new SolidBrush(Color.Purple), 3);
+
         public void Render(BufferedGraphics drawingSpace)
         {
-            switch (rotation)
+            if (PV <= 0)
+                return;
+
+            float opacity = (float)PV / 15f;
+            if (opacity < 0) opacity = 0;
+
+            ColorMatrix cm = new ColorMatrix();
+            cm.Matrix33 = opacity;
+            ImageAttributes ia = new ImageAttributes();
+            ia.SetColorMatrix(cm, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+
+            Image img = rotation switch
             {
-                case 72:
-                    drawingSpace.Graphics.DrawImage(Resources.block_5, X, Y, 150, 150);
-                    break;
-                case 144:
-                    drawingSpace.Graphics.DrawImage(Resources.block_3, X, Y, 150, 150);
-                    break;
-                case 216:
-                    drawingSpace.Graphics.DrawImage(Resources.block_4, X, Y, 150, 150);
-                    break;
-                case 288:
-                    drawingSpace.Graphics.DrawImage(Resources.block_2, X, Y, 150, 150);
-                    break;
-                case 360:
-                    drawingSpace.Graphics.DrawImage(Resources.block_1, X, Y, 150, 150);
-                    break;
-                default:
-                    // Par défaut, une image neutre ou rien
-                    break;
+                72 => Resources.block_5,
+                144 => Resources.block_3,
+                216 => Resources.block_4,
+                288 => Resources.block_2,
+                360 => Resources.block_1,
+                _ => null
+            };
+
+            if (img != null)
+            {
+                drawingSpace.Graphics.DrawImage(
+                    img,
+                    new Rectangle(X, Y, 150, 150),
+                    0, 0, img.Width, img.Height,
+                    GraphicsUnit.Pixel,
+                    ia
+                );
             }
-            // === DEBUG : Affiche la hitbox du block ===
+
 #if DEBUG
+            // === DEBUG : Affiche la hitbox du block ===
             using (Pen pen = new Pen(Color.Red, 2))
             {
-                pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+                pen.DashStyle = DashStyle.Dot;
                 // Cercle gauche
-                drawingSpace.Graphics.DrawEllipse(pen, LeftCircle.Center.X - LeftCircle.Radius,
-                                                         LeftCircle.Center.Y - LeftCircle.Radius,
-                                                         LeftCircle.Radius * 2,
-                                                         LeftCircle.Radius * 2);
+                drawingSpace.Graphics.DrawEllipse(pen,
+                    LeftCircle.Center.X - LeftCircle.Radius,
+                    LeftCircle.Center.Y - LeftCircle.Radius,
+                    LeftCircle.Radius * 2,
+                    LeftCircle.Radius * 2);
+
                 // Cercle droit
-                drawingSpace.Graphics.DrawEllipse(pen, RightCircle.Center.X - RightCircle.Radius,
-                                                         RightCircle.Center.Y - RightCircle.Radius,
-                                                         RightCircle.Radius * 2,
-                                                         RightCircle.Radius * 2);
+                drawingSpace.Graphics.DrawEllipse(pen,
+                    RightCircle.Center.X - RightCircle.Radius,
+                    RightCircle.Center.Y - RightCircle.Radius,
+                    RightCircle.Radius * 2,
+                    RightCircle.Radius * 2);
             }
 #endif
-
-
         }
     }
 }

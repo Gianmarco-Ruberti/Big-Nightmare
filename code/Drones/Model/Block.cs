@@ -11,11 +11,14 @@ namespace BigNightmare
         private int _x;
         private int _y;
         private int rotation;
+        public static int PV = 15;
+
         public Block(int x, int y, int rota)
         {
             _x = x;
             _y = y;
             rotation = rota;
+            PV = 15;
             switch (rotation)
             {
                 case 360:
@@ -38,13 +41,18 @@ namespace BigNightmare
                     LeftCircle = new CircleHitbox(_x + 85, _y + 45, 35);
                     RightCircle = new CircleHitbox(_x + 68, _y + 105, 35);
                     break;
-            } 
-
+            }
         }
+        public static void TakeDamage(int amount)
+        {
+            PV -= amount;
+            if (PV < 0) PV = 0;
+        }
+
         public int X { get { return _x; } set { _x = value; } }
 
         public int Y { get { return _y; } set { _y = value; } }
-        
+
 
         public CircleHitbox LeftCircle
         {
