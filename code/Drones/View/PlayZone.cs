@@ -86,7 +86,7 @@ namespace BigNightmare
             }
             foreach (MobRed mobRed in _mobRed)
             {
-                    mobRed.Update(interval);
+                mobRed.Update(interval, _player, _mobRed, new List<MobMort>());
             }
             foreach (MobYellow mobYellow in _mobYellow.ToList())
             {
