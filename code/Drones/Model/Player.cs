@@ -11,7 +11,7 @@ namespace BigNightmare
         private int _y;                                 // Position en Y depuis le haut de l'espace aérien
         public List<Bullet> nails;
         private DateTime lastShotTime = DateTime.MinValue;
-        private readonly TimeSpan shotCooldown = TimeSpan.FromMilliseconds(500); // 0,5 sec
+        private readonly TimeSpan shotCooldown = TimeSpan.FromMilliseconds(500);
         public int PV { get; private set; } = 1;
 
 
@@ -27,7 +27,7 @@ namespace BigNightmare
 
         public Rectangle Hitbox
         {
-            get { return new Rectangle(X, Y, 23, 50); } // largeur/hauteur du joueur
+            get { return new Rectangle(X, Y, 23, 50); }
         }
 
         public void munition(Bullet bullet)
@@ -42,7 +42,6 @@ namespace BigNightmare
 
             lastShotTime = DateTime.Now;
 
-            // Crée une nouvelle balle au centre du joueur
             int startX = X + Hitbox.Width / 2 - 25;
             int startY = Y + Hitbox.Height / 2 - 25;
 
@@ -55,25 +54,21 @@ namespace BigNightmare
 
         public void Move(int dx, int dy, List<Block> blocks)
         {
-            // 1️⃣ Calcul de la nouvelle position du joueur
             Rectangle NextPos = new Rectangle(X + dx, Y + dy, Hitbox.Width, Hitbox.Height);
 
-            // 2️⃣ Vérification de collision avec les blocks
             foreach (Block block in blocks)
             {
                 if (block.LeftCircle.collision(NextPos) || block.RightCircle.collision(NextPos))
                 {
-                    return; // collision détectée
+                    return;
                 }
             }
 
-
-            // 3️⃣ Aucune collision → on applique le mouvement
             X += dx;
             Y += dy;
         }
 
-        public void TakeDamage(int amount)
+        public void Damage(int amount)
         {
             PV -= amount;
             if (PV < 0) PV = 0;

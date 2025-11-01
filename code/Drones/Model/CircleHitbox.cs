@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace BigNightmare
 {
@@ -17,16 +13,14 @@ namespace BigNightmare
             Radius = radius;
         }
 
-        // Vérifie si un rectangle (joueur) touche ce cercle
+        // Vérifie si un rectangle touche ce cercle
         public bool collision(Rectangle rect)
         {
-            float closestX = Math.Max(rect.Left, Math.Min(Center.X, rect.Right));
-            float closestY = Math.Max(rect.Top, Math.Min(Center.Y, rect.Bottom));
-
-            float dx = Center.X - closestX;
-            float dy = Center.Y - closestY;
-
-            return (dx * dx + dy * dy) < (Radius * Radius);
+            float nearestX = Math.Max(rect.Left, Math.Min(Center.X, rect.Right));
+            float nearestY = Math.Max(rect.Top, Math.Min(Center.Y, rect.Bottom));
+            float dx = Center.X - nearestX;
+            float dy = Center.Y - nearestY;
+            return (dx * dx + dy * dy) <= (Radius * Radius);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace BigNightmare
             if (PV <= 0)
                 return;
 
-            float opacity = (float)PV / 15f;
+            float opacity = (float)Block.PV / 15f;
             if (opacity < 0) opacity = 0;
 
             ColorMatrix cm = new ColorMatrix();

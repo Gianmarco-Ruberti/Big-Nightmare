@@ -1,10 +1,11 @@
-﻿using System.Windows.Forms;
-using BigNightmare;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+
 namespace BigNightmare
 {
     public partial class MobRed : Mob
     {
-        public int pv = 3;
         private float speed = 1f;
         private DateTime lastSpeedIncrease = DateTime.Now;
 
@@ -18,7 +19,7 @@ namespace BigNightmare
             {
                 if (block.LeftCircle.collision(nextPos) || block.RightCircle.collision(nextPos))
                 {
-                    return; // collision détectée
+                    return; // bloque le mob si collision
                 }
             }
 
@@ -28,22 +29,22 @@ namespace BigNightmare
 
         public void Update(int interval, Player player, List<MobRed> mobRed, List<MobMort> mobMort, List<Block> blocks)
         {
-            // Collision avec joueur
+            // Collision avec le joueur
             if (this.Hitbox.IntersectsWith(player.Hitbox))
             {
-                player.TakeDamage(1);
+                player.Damage(1);
             }
 
-            // Collision avec blocks
+            // Collision avec les blocks → inflige 1 dégât
             foreach (var block in blocks)
             {
                 if (block.LeftCircle.collision(this.Hitbox) || block.RightCircle.collision(this.Hitbox))
                 {
-                    Block.TakeDamage(1); // PV partagé, méthode statique
+                    Block.Damage(1);
                 }
             }
 
-            // Mouvement vers le joueur
+            // Déplacement vers le joueur
             float dx = player.X - _x;
             float dy = player.Y - _y;
             float distance = (float)Math.Sqrt(dx * dx + dy * dy);
