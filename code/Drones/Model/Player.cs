@@ -12,6 +12,7 @@ namespace BigNightmare
         public List<Bullet> nails;
         private DateTime lastShotTime = DateTime.MinValue;
         private readonly TimeSpan shotCooldown = TimeSpan.FromMilliseconds(500); // 0,5 sec
+        public int PV { get; private set; } = 1;
 
 
         // Constructeur
@@ -72,7 +73,11 @@ namespace BigNightmare
             Y += dy;
         }
 
-
+        public void TakeDamage(int amount)
+        {
+            PV -= amount;
+            if (PV < 0) PV = 0;
+        }
         // Cette méthode calcule le nouvel état dans lequel le joueur se trouve après
         // que 'interval' millisecondes se sont écoulées
 

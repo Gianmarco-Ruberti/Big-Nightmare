@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BigNightmare.Model
+namespace BigNightmare
 {
     public class MobMort
     {

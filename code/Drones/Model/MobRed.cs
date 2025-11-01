@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using BigNightmare.Model;
-
+﻿using System.Windows.Forms;
+using BigNightmare;
 namespace BigNightmare
 {
     public partial class MobRed : Mob
     {
+        public int pv = 3;
         private float speed = 1f;
         private DateTime lastSpeedIncrease = DateTime.Now;
+
         public MobRed(float x, float y) : base(x, y, 3) { }
 
         public void Move(float dx, float dy, List<Block> blocks)
@@ -23,7 +18,7 @@ namespace BigNightmare
             {
                 if (block.LeftCircle.collision(nextPos) || block.RightCircle.collision(nextPos))
                 {
-                    return; // collision détectée, ne bouge pas
+                    return; // collision détectée
                 }
             }
 
@@ -33,8 +28,22 @@ namespace BigNightmare
 
         public void Update(int interval, Player player, List<MobRed> mobRed, List<MobMort> mobMort, List<Block> blocks)
         {
-            base.Update(interval);
+            // Collision avec joueur
+            if (this.Hitbox.IntersectsWith(player.Hitbox))
+            {
+                player.TakeDamage(1);
+            }
 
+            // Collision avec blocks
+            foreach (var block in blocks)
+            {
+                if (block.LeftCircle.collision(this.Hitbox) || block.RightCircle.collision(this.Hitbox))
+                {
+                    Block.TakeDamage(1); // PV partagé, méthode statique
+                }
+            }
+
+            // Mouvement vers le joueur
             float dx = player.X - _x;
             float dy = player.Y - _y;
             float distance = (float)Math.Sqrt(dx * dx + dy * dy);
@@ -46,20 +55,19 @@ namespace BigNightmare
                 Move(moveX, moveY, blocks);
             }
 
+            // Augmentation de la vitesse toutes les 30s
             if ((DateTime.Now - lastSpeedIncrease).TotalSeconds >= 30 && speed < 6)
             {
-                speed++;
+                speed += 1f;
                 lastSpeedIncrease = DateTime.Now;
             }
 
-
+            // Mort du mob
             if (pv <= 0)
             {
                 mobRed.Remove(this);
                 mobMort.Add(new MobMort());
-                return;
             }
         }
     }
 }
-

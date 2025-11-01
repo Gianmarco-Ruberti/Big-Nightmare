@@ -11,7 +11,7 @@ namespace BigNightmare
         private int _x;
         private int _y;
         private int rotation;
-        public static int PV = 15;
+        public static int PV { get; private set; } = 15;
 
         public Block(int x, int y, int rota)
         {
