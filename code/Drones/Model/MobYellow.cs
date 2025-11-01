@@ -1,27 +1,29 @@
 ﻿using BigNightmare.Model;
 using System;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace BigNightmare
 {
     public partial class MobYellow : Mob
     {
-        int pv = 10;
+        private int pv = 10;
         private DateTime lastShotTime = DateTime.MinValue;
         private readonly TimeSpan shotCooldown = TimeSpan.FromSeconds(1);
-        public List<MobYellow> mobYellow;
-        public List<MobMort> mob_mort;
 
         public MobYellow(float x, float y) : base(x, y) { }
 
-        public void Update(int interval)
+        // Mise à jour avec tir + mort
+        public void Update(int interval, Player player, List<Bullet> bullets, List<MobYellow> mobYellows, List<MobMort> mobMort)
         {
             if (pv < 0) 
+            // Vérifie si mort
+            if (pv <= 0)
             {
-                MobYellow mobYellow = mobYellows(X, Y);
-                mobYellow.Remove(MobYellow);
-                mob_mort.Add(new MobMort());
+                mobYellows.Remove(this);
+                mobMort.Add(new MobMort());
+                return;
             }
-            pv--;
            /* // tir automatique
             if (DateTime.Now - lastShotTime >= shotCooldown)
             {
