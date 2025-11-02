@@ -42,3 +42,21 @@ Les valeurs possibles du résultat sont: LA (Largement Acquis), A (Acquis), I (I
 | Ecologie (gitignore)       | A        |                                                                                                                                                                                                                                                                                    |
 | Comportement collectif     | A        |                                                                                                                                                                                                                                                                                    |
 | Comportement individuel    | A        |                                                                                                                                                                                                                                                                                    |
+## Final
+
+livraison, impeccable
+
+journal de (Travail) : à l'avenir, vérifiez ce que vous livrez avant de le faire. Votre journal fait 11 pages, il n'y a que la première qui contient des informations.
+
+le jeu n'est pas complètement fonctionnel, mais il comportait des difficultés particulières qui font que je considère l'état du code comme satisfaisant
+
+je l'ai dit et répété : il ne suffit pas de copier coller un diagramme dans une section du rapport pour que le travail soit terminé. Le diagramme doit être commenté dans la section.
+
+L'analyse fonctionnelle n'est pas correcte. Ce que vous avez mis dans votre rapport n'est pas une analyse fonctionnelle. Relisez le project handbook: l'analyse fonctionnelle doit être présentée sous forme de User Story
+
+le rapport ne contient pas la section expliquant le recours que vous avez fait à l'IA
+
+Points à remédier d'ici au 8 novembre (refaire une livraison):
+  - commenter le diagramme de classe dans le rapport
+  -  inclure vos user Stories dans le rapport OU  y mettre  des liens sur les issues sur Github
+  -   ajouter la section d'explications IA
