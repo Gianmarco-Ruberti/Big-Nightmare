@@ -60,3 +60,10 @@ Points à remédier d'ici au 8 novembre (refaire une livraison):
   - commenter le diagramme de classe dans le rapport
   -  inclure vos user Stories dans le rapport OU  y mettre  des liens sur les issues sur Github
   -   ajouter la section d'explications IA
+
+## Remédiation
+
+Attention : vous avez bien ajouté les références à vos US, mais les liens ne fonctionnent pas.  
+J'avais demandé un minimum de 250 mots pour la section IA. On est vraiment très loin du compte.
+
+Malgré cela, je valide votre projet.
